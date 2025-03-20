@@ -1,5 +1,5 @@
 {
-  "name": "cli",
+  "name": "freshservice-konnect",
   "version": "1.0.0",
   "description": "connect two apps",
   "main": "index.js",
