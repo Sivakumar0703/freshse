@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ../config/iparams.html -->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- crayons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@freshworks/crayons@v4/css/crayons-min.css" />
+    <!-- Toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+    <!-- external css -->
+     <!-- <link rel="stylesheet" href="./assets/iparams.css" /> -->
+    <script src="{{{appclient}}}"></script>
+    <link rel="stylesheet" href="./assets/style/style.css" />
+</head>
+
+<body>
+    <!-- toast -->
+    <fw-toast id="toast-msg"></fw-toast>
+
+    <!-- signup tab -->
+    <div id="signup-page">
+        <fw-tabs>
+         <fw-tab slot="tab" panel="signup">Signup</fw-tab>
+         <fw-tab-pannel name="signup">
+            <br>
+            <!-- username field -->
+            <fw-input label="Username" icon-left="at-the-rate" hint-text="Create your konnectify's username"
+            warning-text="Username field should not be empty" 
+            placeholder="eg: Mark1123" clear-input id="signup-username">
+             </fw-input>
+            <br>
+            <!-- email field -->
+            <fw-input label="Email" icon-left="email" hint-text="Create your konnectify's email"
+            warning-text="email field should not be empty" error-text="Invalid email address" type="email"
+            placeholder="eg: someone@example.com" required clear-input id="signup-email">
+             </fw-input>
+            <br>
+            <!-- password field -->
+            <fw-input label="Password" icon-left="password" hint-text="Create your konnectify's password"
+            warning-text="Password field should not be empty" type="password" 
+            placeholder="eg: pass@w58ord" required clear-input id="signup-password">
+             <fw-icon name="hidden" slot="input-suffix" id="signup-password-icon" class="password-icon"></fw-icon>
+             </fw-input>
+            <br>
+            <!-- company name field -->
+            <fw-input label="Company" icon-left="company" hint-text="Please enter your company/organisation name"
+            warning-text="Company name field should not be empty"  
+            placeholder="eg: konnectify" required clear-input id="signup-company">
+             </fw-input>
+            <br>
+            <!-- phone number field -->
+            <fw-input label="Phone" icon-left="phone" hint-text="Please enter your contact number with country code"
+            warning-text="phone number field should not be empty" type="text" minlength="10" maxlength="10"
+            placeholder="eg:+91 8975xxx579" clear-input id="signup-phone">
+             </fw-input>
+            <br>
+            <div id="signup-btn-container">
+                <fw-button id="back-btn" color="secondary">
+                    <!-- back button -->
+                    <fw-icon name="arrow-left"></fw-icon>&nbsp; Back  
+                 </fw-button>
+                 <!-- signup button -->
+                <fw-button id="signup-btn">Signup</fw-button>
+            </div>
+            <br>
+         </fw-tab-pannel>
+        </fw-tabs>
+    </div>
+    
+       
+    <!-- settings page tab -->
+    <div id="settings-page">
+        <fw-tabs id="settings-tab" style="--fw-font-family: 'Open Sans', 'Helvetica Neue', sans-serif">
+            <fw-tab slot="tab" panel="login" id="tab-1">Login/Signup</fw-tab>
+            <!-- disabled="true" -->
+            <fw-tab slot="tab" panel="app1"  id="tab-2" data-apptab="app1-tab" disabled="true">Connect %%APP1_NAME%%</fw-tab>
+            <fw-tab slot="tab" panel="app2" id="tab-3" data-apptab="app2-tab" disabled="true">Connect %%APP2_NAME%%</fw-tab>
+  
+            <!-- login tab -->
+            <fw-tab-panel name="login">
+              <!-- login credentials -->
+              <div id="login-container"> <br>
+                <!-- email field -->
+                <div id="input-container">
+                    <fw-input label="Email" icon-left="at-the-rate" hint-text="Please enter your konnectify's user email"
+                    warning-text="Email field should not be empty" type="email"
+                    placeholder="eg: someone@example.com" required clear-input id="login-email" >
+                </fw-input>
+            </div>
+            <br>
+            <!-- password field -->
+            <div id="password-container">
+                <fw-input label="Password" icon-left="password" hint-text="Please enter your konnectify's password"
+                warning-text="Password field should not be empty"  type="password"  
+                placeholder="eg: pass@w58ord" required clear-input id="login-password">
+                    <fw-icon name="hidden" slot="input-suffix" id="login-password-icon" class="password-icon"></fw-icon>
+            </fw-input> 
+        </div>
+        <br>
+        <!-- validate button -->
+        <div id="login-btn-container">
+            <fw-button color="primary" id="login-btn"> Login </fw-button>
+        </div>
+        <br>
+        
+        <div style="font-family:Open Sans,Helvetica Neue,sans-serif" id="signup-link-container">
+            <!-- <fw-button modal-trigger-id='modal-slider' id=""> Click here </fw-button> -->
+            <span>Don't you have an account ? </span>
+            <span id="show-signup-page">Sign-up</span>
+        </div>
+        <br>
+        </div>
+            </fw-tab-panel>
+
+            <!-- freshservice connection tab -->
+            <fw-tab-panel name="app1">
+                <div id="tab2-spinner"> <br>
+                    <div class="spinner-loader">
+                        <fw-spinner size="medium"></fw-spinner> <br> <br>
+                    </div>
+                    <p style="text-align: center;">Please wait. We are fetching the form fields for you</p>
+                </div>
+
+                <div id="tab2-error-container" class="hide">
+                    <p style="text-align: center;">Something went wrong. Please try again.</p>
+                </div>
+
+                <div id="tab2-container" class="hide">
+                    <div id="tab2-fields-container"> <br>
+
+                    </div>
+    
+                    <div class="tab-validation-btn-container" id="tab2-btn-container">
+                        <fw-button id="tab2-validate-btn">validate</fw-button>
+                    </div>
+                </div>
+            </fw-tab-panel>
+
+            <!-- ukg connection tab -->
+             <!-- app-freshservice/connection -->
+            <fw-tab-panel name="app2">
+                <div id="tab3-spinner"> <br>
+                    <div class="spinner-loader"> 
+                        <fw-spinner size="medium"></fw-spinner> <br><br>
+                    </div>
+                    <p style="text-align: center;">Please wait. We are fetching the form fields for you</p>
+                </div>
+
+                <div id="tab3-error-container" class="hide">
+                    <p style="text-align: center;">Something went wrong. Please try again.</p>
+                </div>
+
+                <div id="tab3-container" class="hide">
+                    <div id="tab3-fields-container"> <br>
+
+                    </div>
+                    
+    
+                    <div class="tab-validation-btn-container" id="tab3-btn-container">
+                        <fw-button id="tab3-validate-btn">validate</fw-button>
+                    </div>
+                </div>
+            </fw-tab-panel>
+        </fw-tabs>
+    </div>
+   
+<!-- iparams script file  -->
+<script src="./assets/scripts/iparams.js"></script>
+<script>
+    console.log('from iparams.html');
+
+    function getValueFromElement(elementId){
+        const element = document.getElementById(elementId);
+        const value = element.value?.trim();
+        if(!value){
+            toast.trigger({type:'error', content: "Error in postConfigs"});
+            return
+        }
+        return value
+    }
+   
+
+    function getElementUsingId(id){
+        const element = document.getElementById(id);
+        if(!element){
+            toast.trigger({type:'error', content: "Error in getConfigs"});
+            return 
+        }
+        return element
+    }
+    
+
+    function postConfigs(){
+        console.log("post config called");
+    const login_email = getValueFromElement("login-email");
+    const login_password = getValueFromElement("login-password");
+    // const login_btn = getValueFromElement("login_btn");
+    const app1_domain = getValueFromElement("tab2-url");
+    const app1_apikey = getValueFromElement("tab2-api");
+    const app1_connection_name = getValueFromElement("tab2-connection-name");
+    const app2_domain = getValueFromElement("tab3-url");
+    const app2_apikey = getValueFromElement("tab3-api");
+    const app2_connection_name = getValueFromElement("tab3-connection-name");
+    const user = sendUserDataToPostConfig();
+    const tab2_name = document.querySelector('fw-tab[data-apptab="app1-tab"]');
+    const app1_name = tab2_name.innerText.split(' ')[1];
+    const tab3_name = document.querySelector('fw-tab[data-apptab="app2-tab"]');
+    const app2_name = tab3_name.innerText.split(' ')[1];
+    // const apps_name = getAppsName();
+    console.log('postconfig',login_email,
+        login_password,
+        app1_domain,
+        app1_apikey,
+        app1_connection_name,
+        app2_domain,
+        app2_apikey,
+        app2_connection_name,
+        user,
+        app1_name,
+        app2_name,
+        getUserName(),
+        user.app1_connection_id,
+        user.app2_connection_id
+     )
+    return {
+        email:login_email,
+        password:login_password,
+        app1_domain,
+        app1_apikey,
+        app1_connection_name,
+        app2_domain,
+        app2_apikey,
+        app2_connection_name,
+        access_token: user.access_token,
+        tenant_id: user.tenant_id,
+        id: user.id ,
+        app1_name,
+        app2_name,
+        name: getUserName(),
+        isEditConfigOpened: true,
+        app1_connection_id: user.app1_connection_id,
+        app2_connection_id: user.app2_connection_id
+        // base_url,
+        // access_token // access_token variable gets value once the user is signed up or logged in successfully
+    }
+    }
+
+    function getConfigs(iparams){
+        const app1_vakidate_btn = getElementUsingId("tab2-validate-btn");
+        // const app1_name = "freshservice";
+        console.log("iparams", iparams);
+        login_email.value = iparams.email;
+        login_password.value = iparams.password;
+        if(iparams.email && iparams.password){
+            login().then((result) => {
+                console.log("fn", result)
+                if(result){
+                    getElementUsingId("tab2-url").value = iparams.app1_domain ;
+                    getElementUsingId("tab2-api").value = iparams.app1_apikey ;
+                    getElementUsingId("tab2-connection-name").value = iparams.app1_connection_name ;
+                    validateCredentials(iparams.app1_name.toLowerCase())
+                    .then((result) => {
+                        console.log("app1__",result)
+                        if(result){
+                            console.log("url")
+                            getElementUsingId("tab3-url").value = iparams.app2_domain ;
+                            console.log("api")
+                            getElementUsingId("tab3-api").value = iparams.app2_apikey ;
+                            console.log("connection")
+                            getElementUsingId("tab3-connection-name").value = iparams.app2_connection_name ;
+                            validateCredentials(iparams.app2_name.toLowerCase()) 
+                        }
+                    })
+                    .catch((error) => {
+                        toast.trigger({ type: "error", content: "connection failed. Try again" });
+                        console.log("Get Config - error in app-1 connection", error);
+                    });
+                    
+                }
+            }).catch((error) => {
+                toast.trigger({ type: "error", content: "Login Failed. Try again" });
+                console.log("Get Config - error in login", error);
+            })
+            
+        }
+        console.log("end")        
+    }
+
+
+    </script>
+    <!-- crayons -->
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@freshworks/crayons@v4/dist/crayons/crayons.esm.js">
+    </script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@freshworks/crayons@v4/dist/crayons/crayons.js"></script>
+
+</body>
+
+</html>

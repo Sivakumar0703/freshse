@@ -1,0 +1,50 @@
+html{
+    font-family:"Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#show-signup-page{
+    cursor: pointer;
+    color:blue;
+}
+
+/* #login-btn-container, #signup-btn-container, .tab-validation-btn-container{
+    display: flex;
+    justify-content: center;
+} */
+
+#signup-page{
+    display: none;
+}  
+
+.font{
+    font-family:Open Sans,Helvetica Neue,sans-serif;
+}
+
+#signup-btn{
+    margin-left: 10px;
+}
+
+.password-icon{
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+/* #login-container, #tab2-fields-container, #tab3-fields-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+#login-container  fw-input , #tab2-fields-container fw-input, #signup-page fw-input, #tab3-fields-container fw-input{
+    width :300px;
+}
+
+.hide{
+    display:none;
+}
+
+.spinner-loader{
+    display: flex;
+    justify-content: center;
+}

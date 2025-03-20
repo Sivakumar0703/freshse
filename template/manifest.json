@@ -1,0 +1,41 @@
+{
+  "platform-version": "2.3",
+  "product": {
+    "freshservice": {
+      "location": {
+        "full_page_app": {
+          "url": "/index.html",
+          "icon":"../app/styles/images/icon.svg"
+        }
+      },
+      "requests": {
+        "login": {},
+        "signup": {},
+        "getAppSchema": {}
+      },
+      "events": {
+        "onAppInstall": {
+          "handler": "onAppInstallCallback"
+        }
+      },
+      "functions": {
+        "authConnection": {},
+        "createConnection": {},
+        "saveConnection": {},
+        "editConnection": {},
+        "sampleSmi": {},
+        "listKonnectors": {},
+        "activateKonnector":{},
+        "deactivateKonnector":{},
+        "getMyBillings":{}
+      }
+    }
+  },
+  "engines": {
+    "node": "18.20.6",
+    "fdk": "9.2.0"
+  },
+  "dependencies": {
+    "axios": "0.20.0"
+  }
+}

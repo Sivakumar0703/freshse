@@ -1,0 +1,18 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "description": "connect two apps",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "create-fs-konnect": "./bin/cli.js"
+  },
+  "author": "sivakumar",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^12.5.0"
+  }
+}

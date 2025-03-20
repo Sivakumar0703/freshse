@@ -1,0 +1,37 @@
+{
+    "login":{
+        "schema":{
+            "method": "POST",
+            "host": "<%= context.base_url %>",
+            "path": "/api/internal/login",
+            "headers": {
+                "Content-Type": "application/json"
+            }
+        }
+    },
+
+    "signup": {
+        "schema": {
+            "method": "POST",
+            "host": "<%= context.host %>",
+            "path": "/api/auth/registerApi",
+            "headers": {
+                "Content-Type": "application/json"
+            }
+        }
+    },
+
+    
+    "getAppSchema": {
+        "schema": {
+            "method": "GET",
+            "host": "<%= context.host %>",
+            "path": "/api/internal/apps/<%= context.app_id %>",
+            "headers": {
+                "Authorization": "Bearer <%= context.token %>"
+            }
+        }
+    }
+    
+    
+}
